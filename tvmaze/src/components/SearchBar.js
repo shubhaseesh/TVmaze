@@ -1,9 +1,9 @@
 import React from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ type, searchType }) => {
   return (
-    <div className="border border-red-500">
-      <input type="text" />
+    <div className="border border-red-500 w-1/2 mt-8">
+      <input type={type} placeholder={`Search ${searchType}`} />
     </div>
   );
 };
