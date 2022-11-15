@@ -15,24 +15,22 @@ const Header = ({ onChange }) => {
       <h3 className="text-center">TVmaze</h3>
       <div className="flex justify-start items-center relative bg-green-200 w-full  h-1/2 ">
         <div className="mx-4">
-          <label>Actors</label>
           <input
             type="radio"
-            name="radio"
             onChange={handleChange}
-            checked={resourceType === "actor"}
-            value="actor"
+            checked={resourceType === "people"}
+            value="people"
           />
+          <label>Actors</label>
         </div>
         <div className="mx-4">
-          <label>Shows</label>
           <input
             type="radio"
-            name="radio"
             onChange={handleChange}
             checked={resourceType === "shows"}
             value="shows"
           />
+          <label>Shows</label>
         </div>
       </div>
     </div>
