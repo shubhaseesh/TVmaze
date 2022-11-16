@@ -1,13 +1,10 @@
-import React from "react";
-// import { Link } from "react-router-dom";
-
 const Item = ({ url, name, image, rating, summary, country }) => {
   return (
     <a href={url} target="blank">
-      <div className="mt-4 mr-0 bg-white shadow-lg cursor-pointer">
-        <div className="bg-sky-300 p-3">
+      <div className="mt-4 mr-0 bg-gray-300 shadow-lg cursor-pointer rounded-lg shadow-black">
+        <div className="bg-sky-300 p-3 rounded-lg">
           <img
-            className="object-fill h-56 w-full"
+            className="object-fill h-56 w-full rounded-lg"
             src={image.medium ? image.medium : image}
             alt={name}
           />
@@ -17,9 +14,12 @@ const Item = ({ url, name, image, rating, summary, country }) => {
           {rating && <h4>Rating : {rating}</h4>}
           {country && <h4>Country : {country}</h4>}
           {summary && (
-            <div className="flex flex-row flex-wrap">
+            <div className="h-40 overflow-scroll">
               <span>Summary :</span>
-              <div dangerouslySetInnerHTML={{ __html: summary }} />
+              <div
+                className="px-2 italic"
+                dangerouslySetInnerHTML={{ __html: summary }}
+              />
             </div>
           )}
         </div>

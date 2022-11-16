@@ -16,7 +16,7 @@ const SearchBar = ({ type, searchType, onClick, category }) => {
     const { data } = await axios.get(
       `https://api.tvmaze.com/search/${category}?q=${searchString}`
     );
-    onClick(data);
+    return onClick(data);
   };
   return (
     <form

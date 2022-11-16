@@ -48,7 +48,7 @@ const App = () => {
             />
           ))}
       </div>
-      <div className="grid grid-cols-3 gap-4 justify-center mx-10">
+      <div className="grid grid-cols-4 gap-4 justify-center mx-10 mb-8">
         {fetchedData[0] &&
           fetchedData[0].hasOwnProperty("show") &&
           fetchedData.map((item) => (
