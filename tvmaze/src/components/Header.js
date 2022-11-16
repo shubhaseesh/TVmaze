@@ -17,17 +17,17 @@ const Header = ({ onChange }) => {
         <div className="mx-4">
           <input
             type="radio"
+            name='radio'
             onChange={handleChange}
-            checked={category === "people"}
             value="people"
           />
           <label>Actor</label>
         </div>
         <div className="mx-4">
           <input
+            name='radio'
             type="radio"
             onChange={handleChange}
-            checked={category === "shows"}
             value="shows"
           />
           <label>Shows</label>
