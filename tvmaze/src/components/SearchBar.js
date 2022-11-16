@@ -19,9 +19,12 @@ const SearchBar = ({ type, searchType, onChange, onClick, category }) => {
     onClick(data);
   };
   return (
-    <form onSubmit={submitHandler} className="flex flex-col items-center mt-8">
+    <form
+      onSubmit={submitHandler}
+      className="flex flex-row justify-between items-center mt-8"
+    >
       <input
-        className="w-full bg-white text-black border border-red-600 rounded h-10 p-2 shadow-xl placeholder-gray-500 placeholder-opacity-100"
+        className=" mx-3 bg-white text-black border w-96 border-red-600 rounded-sm h-10 p-2 shadow-xl placeholder-gray-500 placeholder-opacity-100"
         type={type}
         value={searchString}
         placeholder={`Search ${searchType}`}
@@ -29,7 +32,7 @@ const SearchBar = ({ type, searchType, onChange, onClick, category }) => {
       />
 
       <button
-        className="w-full bg-blue-700 mt-3 text-white rounded-sm h-10"
+        className="w-full bg-blue-700 text-white font-extrabold rounded-sm h-10"
         onClick={itemSearchHandle}
       >
         Search

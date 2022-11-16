@@ -47,9 +47,11 @@ const App = () => {
             <Item
               key={item.show.id && item.show.id}
               id={item.show.id && item.show.id}
+              url={item.show.url && item.show.url}
               name={item.show.name && item.show.name}
               image={item.show.image ? item.show.image : ImageNotAvailable}
-              rating={item.show.rating.average && item.show.rating.average}
+              rating={item.show.rating.average ? item.show.rating.average: "N/A"}
+              summary={item.show.summary ? item.show.summary: "N/A"}
             />
           ))}
       </div>
