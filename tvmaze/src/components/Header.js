@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 const Header = ({ onChange }) => {
-  const [resourceType, setResourceType] = useState("");
+  const [category, setCategory] = useState("");
   const handleChange = (e) => {
-    setResourceType(e.target.value);
+    setCategory(e.target.value);
   };
 
   useEffect(() => {
-    onChange(resourceType);
-  }, [resourceType, onChange]);
+    onChange(category);
+  }, [category, onChange]);
 
   return (
     <div className="bg-green-400 h-40 flex flex-col justify-center item-center w-[80%]">
@@ -18,16 +18,16 @@ const Header = ({ onChange }) => {
           <input
             type="radio"
             onChange={handleChange}
-            checked={resourceType === "people"}
+            checked={category === "people"}
             value="people"
           />
-          <label>Actors</label>
+          <label>Actor</label>
         </div>
         <div className="mx-4">
           <input
             type="radio"
             onChange={handleChange}
-            checked={resourceType === "shows"}
+            checked={category === "shows"}
             value="shows"
           />
           <label>Shows</label>

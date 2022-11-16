@@ -1,47 +1,58 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
+import Item from "./components/Item";
+import ImageNotAvailable from "./assest/No_image_available.svg.png";
+
 
 const App = () => {
   const [fetchedData, setFetchedData] = useState([]);
-  const [searchType, setSearchType] = useState("");
-  const [queryString, setQueryString] = useState("");
+  const [category, setCategory] = useState("");
 
-  const searchTypeHandler = (type) => {
-    setSearchType(type);
+  const categoryHandler = (type) => {
+    setCategory(type);
   };
 
-  const searchBarHandler = (queryString) => {
-    setQueryString(queryString);
+  const itemSearchHandler = (data) => {
+    setFetchedData(data);
   };
-
-  useEffect(() => {
-    if (searchType !== "") {
-      try {
-        axios
-          .get(`https://api.tvmaze.com/search/${searchType}?q=${queryString}`)
-          .then((res) => {
-            const data = res.data;
-            setFetchedData(data);
-          });
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  }, [searchType, queryString]);
 
   return (
     <div className="flex flex-col justify-center items-center w-full">
-      <Header searchType={searchType} onChange={searchTypeHandler} />
-      {searchType && (
+      <Header onChange={categoryHandler} />
+      {category && (
         <SearchBar
+          category={category}
           type="text"
-          searchType={searchType}
-          onChange={searchBarHandler}
+          searchType={category}
+          onClick={itemSearchHandler}
         />
       )}
-      {fetchedData && <div>{JSON.stringify(fetchedData)}</div>}
+      <div className="grid grid-cols-3 gap-4 justify-center mx-10">
+        {fetchedData[0] &&
+          fetchedData[0].hasOwnProperty("person") &&
+          fetchedData.map((item) => (
+            <Item
+              key={item.person.id && item.person.id}
+              id={item.person.id && item.person.id}
+              name={item.person.name && item.person.name}
+              image={item.person.image ? item.person.image : ImageNotAvailable}
+            />
+          ))}
+      </div>
+      <div className="grid grid-cols-3 gap-4 justify-center mx-10">
+        {fetchedData[0] &&
+          fetchedData[0].hasOwnProperty("show") &&
+          fetchedData.map((item) => (
+            <Item
+              key={item.show.id && item.show.id}
+              id={item.show.id && item.show.id}
+              name={item.show.name && item.show.name}
+              image={item.show.image ? item.show.image : ImageNotAvailable}
+              rating={item.show.rating.average && item.show.rating.average}
+            />
+          ))}
+      </div>
     </div>
   );
 };
