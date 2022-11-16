@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const SearchBar = ({ type, searchType, onChange, onClick, category }) => {
+const SearchBar = ({ type, searchType, onClick, category }) => {
   const [searchString, setSearchString] = useState("");
 
   const searchHandler = (e) => {
@@ -30,7 +30,6 @@ const SearchBar = ({ type, searchType, onChange, onClick, category }) => {
         placeholder={`Search ${searchType}`}
         onChange={searchHandler}
       />
-
       <button
         className="w-full bg-blue-700 text-white font-extrabold rounded-sm h-10"
         onClick={itemSearchHandle}
