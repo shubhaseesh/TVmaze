@@ -12,7 +12,6 @@ const App = () => {
     setCategory(type);
   };
 
-  
   const itemSearchHandler = (data) => {
     if (data.length > 0) {
       setError(false);
@@ -43,7 +42,9 @@ const App = () => {
               key={item.person.id && item.person.id}
               id={item.person.id && item.person.id}
               name={item.person.name && item.person.name}
+              url={item.person.url && item.person.url}
               image={item.person.image ? item.person.image : ImageNotAvailable}
+              country={item.person.country ? item.person.country.name : "N/A"}
             />
           ))}
       </div>
