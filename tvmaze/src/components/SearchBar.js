@@ -21,7 +21,7 @@ const SearchBar = ({ type, searchType, onClick, category }) => {
   return (
     <form
       onSubmit={submitHandler}
-      className="flex flex-row justify-between items-center mt-8"
+      className="flex flex-row justify-center items-center bg-slate-300 h-32 w-full"
     >
       <input
         className=" mx-3 bg-white text-black border w-96 border-red-600 rounded-sm h-10 p-2 shadow-xl placeholder-gray-500 placeholder-opacity-100"
@@ -31,7 +31,7 @@ const SearchBar = ({ type, searchType, onClick, category }) => {
         onChange={searchHandler}
       />
       <button
-        className="w-full bg-blue-700 text-white font-extrabold rounded-sm h-10"
+        className="w-40 bg-blue-700 text-white font-extrabold rounded-sm h-10"
         onClick={itemSearchHandle}
       >
         Search
