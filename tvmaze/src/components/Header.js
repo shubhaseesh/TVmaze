@@ -1,14 +1,7 @@
-import React, { useEffect, useState } from "react";
-
 const Header = ({ onChange }) => {
-  const [category, setCategory] = useState("");
   const handleChange = (e) => {
-    setCategory(e.target.value);
+    onChange(e.target.value);
   };
-
-  useEffect(() => {
-    onChange(category);
-  }, [category, onChange]);
 
   return (
     <div className="bg-emerald-300 h-40 flex flex-col justify-between item w-full">
