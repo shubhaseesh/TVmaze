@@ -1,5 +1,3 @@
-import ImageNotAvailable from "../assets/No_image.png";
-
 const Item = ({ data, category }) => {
   switch (category) {
     case "people":
@@ -19,7 +17,7 @@ const Item = ({ data, category }) => {
                       <div className="bg-sky-300 p-3">
                         <img
                           className="object-fill h-56 w-full rounded-sm"
-                          src={item.person.image?.medium || ImageNotAvailable}
+                          src={item.person.image?.medium}
                           alt={item?.person?.name}
                         />
                       </div>
@@ -43,7 +41,8 @@ const Item = ({ data, category }) => {
           {data[0]?.show &&
             data.map(
               (item) =>
-                item.show.image && (
+                item.show.image &&
+                item.show.summary && (
                   <a
                     key={item.show.id}
                     href={item.show.url}
@@ -54,7 +53,7 @@ const Item = ({ data, category }) => {
                       <div className="bg-sky-300 p-3">
                         <img
                           className="object-fill h-56 w-full rounded-sm"
-                          src={item.show.image?.medium || ImageNotAvailable}
+                          src={item.show.image?.medium}
                           alt={item?.show?.name}
                         />
                       </div>
@@ -68,12 +67,12 @@ const Item = ({ data, category }) => {
                         {
                           <div className="h-40 overflow-auto">
                             <span>Summary :</span>
-                            <div
-                              className="px-2 font-thin text-justify text-black"
-                              dangerouslySetInnerHTML={{
-                                __html: item?.show?.summary,
-                              }}
-                            />
+                            <div className="px-2 font-thin text-justify text-black">
+                              {item?.show?.summary
+                                .replace(/<[^>]*>/g, " ")
+                                .replace(/\s{2,}/g, " ")
+                                .trim()}
+                            </div>
                           </div>
                         }
                       </div>
