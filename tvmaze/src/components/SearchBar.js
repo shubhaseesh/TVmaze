@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const SearchBar = ({ type, onClick, category }) => {
+  console.log('SearchBar rendered')
   const [searchString, setSearchString] = useState("");
 
   const searchHandler = (e) => {
