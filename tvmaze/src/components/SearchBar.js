@@ -10,7 +10,7 @@ const SearchBar = ({ type, onClick, category }) => {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    setSearchString("");
+    // setSearchString("");
   };
 
   const itemSearchHandle = async () => {
