@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "./components/Header";
+import RadioButtonHeader from "./components/RadioButtonHeader";
 import SearchBar from "./components/SearchBar";
 import Item from "./components/Item";
 
@@ -24,7 +24,7 @@ const App = () => {
 
   return (
     <div className="flex flex-col justify-center items-center w-full">
-      <Header onChange={categoryHandler} />
+      <RadioButtonHeader onChange={categoryHandler} />
       {category && (
         <SearchBar
           category={category}
